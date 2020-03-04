@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    container_name: airsystem_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - ./db_data:/var/lib/postgresql/data:z
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql:z
+    ports:
+      - "5432:5432"

@@ -1,0 +1,3 @@
+CREATE USER airuser WITH PASSWORD 'airuser';
+CREATE DATABASE airsystem;
+GRANT ALL PRIVILEGES ON DATABASE airsystem to airuser;
