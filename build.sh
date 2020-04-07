@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 sh stop.sh
 docker image rm airella-webapp
 cd webapp
