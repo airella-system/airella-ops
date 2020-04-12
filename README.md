@@ -6,7 +6,7 @@ This repository was made to simplify deployment process of Airella.
 
 ### Deployment
 
-Build backend and frontend docker image by invoking:
+Build/rebuild docker image with lastest backend and frontend version by invoking:
 ```
 ./build.sh
 ```
@@ -18,5 +18,5 @@ Start web application:
 
 Stop web application:
 ```
-./start.sh
+./stop.sh
 ```
