@@ -15,8 +15,7 @@ services:
     image: postgres
     container_name: airella-database
     restart: always
-    environment:
-      POSTGRES_PASSWORD: "cat /run/secrets/database_password"
+    env_file: ../airella-private/secret_db.env
     volumes:
       - ./db_data:/var/lib/postgresql/data:z
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql:z
