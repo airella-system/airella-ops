@@ -5,9 +5,8 @@ services:
     build: ./webapp
     restart: always
     environment:
-      EMAIL_LOGIN: "cat /run/secrets/email_login"
-      EMAIL_PASSWORD: "cat /run/secrets/email_password"
       DOMAIN: "http://airella.cyfrogen.com"
+    env_file: ../airella-private/secret.env
     ports:
     - "8080:8080"
     depends_on:
@@ -23,11 +22,3 @@ services:
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql:z
     ports:
       - "5432:5432"
-
-secrets:
-   database_password:
-     file: ../airella-private/database_password.txt
-   email_login:
-     file: ../airella-private/email_login.txt
-   email_password:
-     file: ../airella-private/email_password.txt
