@@ -5,8 +5,8 @@ services:
     build: ./webapp
     restart: always
     environment:
-      DOMAIN: "http://airella.cyfrogen.com"
-    env_file: ../airella-private/secret.env
+      AIRELLA_DOMAIN: "http://airella.cyfrogen.com"
+    env_file: ../airella-private/secret_webapp.env
     ports:
     - "8080:8080"
     depends_on:
@@ -15,7 +15,7 @@ services:
     image: postgres
     container_name: airella-database
     restart: always
-    env_file: ../airella-private/secret_db.env
+    env_file: ../airella-private/secret_database.env
     volumes:
       - ./db_data:/var/lib/postgresql/data:z
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql:z
