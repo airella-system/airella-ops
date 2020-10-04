@@ -5,7 +5,7 @@ services:
     build: ./webapp
     restart: always
     environment:
-      AIRELLA_DOMAIN: "http://airella.cyfrogen.com"
+      AIRELLA_DOMAIN: "https://airella.cyfrogen.com"
     env_file: ../airella-private/secret_webapp.env
     ports:
     - "8080:8080"
