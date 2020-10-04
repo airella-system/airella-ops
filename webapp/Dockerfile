@@ -1,7 +1,8 @@
 FROM node:12.16.1-alpine AS frontend
 WORKDIR /usr/src/app
 COPY build/airella-frontend/package.json ./
-RUN npm install
+COPY build/airella-frontend/package-lock.json ./
+RUN npm ci
 COPY build/airella-frontend .
 RUN npm run build
 
