@@ -8,11 +8,11 @@ services:
       AIRELLA_DOMAIN: "https://airella.cyfrogen.com"
     env_file: ../airella-private/secret_webapp.env
     ports:
-    - "8080:8080"
+    - "8880:8080"
     depends_on:
     - database
   database:
-    image: postgres
+    image: postgres:12.4
     container_name: airella-database
     restart: always
     env_file: ../airella-private/secret_database.env
@@ -21,3 +21,10 @@ services:
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql:z
     ports:
       - "5432:5432"
+  gsm-extender:
+    build: ./gsm-extender
+    restart: always
+    ports:
+    - "8881:8080"
+    depends_on:
+    - webapp

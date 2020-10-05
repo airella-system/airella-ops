@@ -12,4 +12,9 @@ esac; shift; done
 sh stop.sh
 cd webapp
 sh fetch.sh --frontend-branch $frontend_branch --backend-branch $backend_branch
+cd ..
+cd gsm-extender
+sh fetch.sh
+cd ..
+
 docker-compose build
